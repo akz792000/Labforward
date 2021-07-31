@@ -14,6 +14,6 @@ import javax.persistence.Entity;
 public class FactoryEntity extends BaseEntity {
 
     @Column(name = "name")
-    String name;
+    private String name;
 
 }

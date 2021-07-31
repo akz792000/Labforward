@@ -1,6 +1,7 @@
 package com.labforward.project.domain;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -21,5 +22,9 @@ public abstract class BaseEntity implements Serializable {
     @Version
     @Column(name = "version", precision = 12)
     private Long version;
+
+    @Setter
+    @Column(unique = true)
+    private Long code;
 
 }

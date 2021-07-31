@@ -21,6 +21,10 @@ public class FactoryService {
         return repository.findById(id);
     }
 
+    public Optional<FactoryEntity> findByCode(Long id) {
+        return repository.findByCode(id);
+    }
+
     public FactoryEntity save(FactoryEntity entity) {
         return repository.save(entity);
     }

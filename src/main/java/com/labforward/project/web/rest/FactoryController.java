@@ -37,6 +37,16 @@ public class FactoryController {
         return null;
     }
 
+    @GetMapping(value = "/findByCode")
+    public FactoryDTO findByCode(@RequestParam Long code) throws Exception {
+        log.info("Find by code");
+        Optional<FactoryEntity> optional = service.findByCode(code);
+        if (optional.isPresent()) {
+            return mapper.toDTO(optional.get());
+        }
+        return null;
+    }
+
     @PostMapping(value = "/persist")
     public Long persist(final @RequestBody @Valid FactoryDTO dto) {
         log.info("Persist");

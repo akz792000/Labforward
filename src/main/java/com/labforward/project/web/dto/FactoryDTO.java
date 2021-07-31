@@ -1,5 +1,6 @@
 package com.labforward.project.web.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,8 +16,10 @@ import lombok.NoArgsConstructor;
 @Data
 public class FactoryDTO {
 
-    private Long id;
+    @JsonProperty
+    private Long code;
 
+    @JsonProperty
     private String name;
 
 }
