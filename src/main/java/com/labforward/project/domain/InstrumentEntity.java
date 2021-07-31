@@ -7,10 +7,15 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * @ AnalyticalInstrument Ali Karimizandi
+ * @since 2021
+ */
 @Data
-@MappedSuperclass
+@Entity(name = "instrument")
 @Inheritance(strategy = InheritanceType.JOINED)
-public class AbstractInstrumentEntity extends BaseEntity {
+@DiscriminatorColumn(name = "instrument_type", discriminatorType = DiscriminatorType.INTEGER)
+public abstract class InstrumentEntity extends BaseEntity {
 
     @Column
     protected String title;
@@ -26,5 +31,8 @@ public class AbstractInstrumentEntity extends BaseEntity {
     @Column
     @Temporal(TemporalType.DATE)
     private Date publishingDate;
+
+    @Column(length = 1000)
+    private String description;
 
 }

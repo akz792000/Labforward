@@ -1,5 +1,6 @@
 package com.labforward.project.web.dto;
 
+import com.labforward.project.enums.MaterialType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,12 +14,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Data
-public class AuthorDTO {
+public class ClinicalLabEquipmentDTO {
 
     private Long id;
 
-    private String firstName;
+    private String title;
 
-    private String lastName;
+    private MaterialType materialType;
 
 }

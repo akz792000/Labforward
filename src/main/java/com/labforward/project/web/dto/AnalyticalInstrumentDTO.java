@@ -1,12 +1,10 @@
 package com.labforward.project.web.dto;
 
+import com.labforward.project.enums.PowerUsageType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.List;
-
 
 /**
  * @author Ali Karimizandi
@@ -21,5 +19,7 @@ public class AnalyticalInstrumentDTO {
     private Long id;
 
     private String title;
+
+    private PowerUsageType powerUsageType;
 
 }

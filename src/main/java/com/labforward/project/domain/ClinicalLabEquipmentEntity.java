@@ -1,7 +1,7 @@
 package com.labforward.project.domain;
 
 import com.labforward.project.enums.InstrumentType;
-import com.labforward.project.enums.PowerUsageType;
+import com.labforward.project.enums.MaterialType;
 import lombok.Data;
 
 import javax.persistence.DiscriminatorValue;
@@ -14,12 +14,12 @@ import javax.persistence.Enumerated;
  * @since 2021
  */
 @Data
-@Entity(name = InstrumentType.Name.AnalyticalInstrument)
-@DiscriminatorValue(InstrumentType.Code.AnalyticalInstrument)
-public class AnalyticalInstrumentEntity extends InstrumentEntity {
+@Entity(name = InstrumentType.Name.ClinicalLabEquipment)
+@DiscriminatorValue(InstrumentType.Code.ClinicalLabEquipment)
+public class ClinicalLabEquipmentEntity extends InstrumentEntity {
 
     @Enumerated(EnumType.STRING)
-    private PowerUsageType powerUsageType;
+    private MaterialType materialType;
 
     /**
      * declare other dedicated fields
