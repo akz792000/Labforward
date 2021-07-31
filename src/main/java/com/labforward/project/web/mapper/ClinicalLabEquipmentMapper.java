@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
  * @since 2021
  */
 @Mapper
-public abstract class ClinicalLabEquipmentMapper {
+public abstract class ClinicalLabEquipmentMapper implements BaseMapper<ClinicalLabEquipmentEntity, ClinicalLabEquipmentDTO> {
 
     @Autowired
     private FactoryRepository factoryRepository;
@@ -25,9 +25,5 @@ public abstract class ClinicalLabEquipmentMapper {
         entity.setFactories(dto.getFactories().stream().map(item -> factoryRepository.findByCode(item.getId()).get()).collect(Collectors.toSet()));
         return entity;
     }
-
-    public abstract ClinicalLabEquipmentDTO toDTO(ClinicalLabEquipmentEntity entity);
-
-    public abstract ClinicalLabEquipmentEntity toEntity(ClinicalLabEquipmentDTO dto);
 
 }

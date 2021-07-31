@@ -9,9 +9,9 @@ import org.springframework.stereotype.Service;
  * @since 2021
  */
 @Service
-public class FactoryServiceAbstract extends AbstractBaseService<FactoryRepository, FactoryEntity, Long> {
+public class FactoryService extends AbstractBaseService<FactoryRepository, FactoryEntity, Long> {
 
-    public FactoryServiceAbstract(FactoryRepository repository) {
+    public FactoryService(FactoryRepository repository) {
         super(repository);
     }
 

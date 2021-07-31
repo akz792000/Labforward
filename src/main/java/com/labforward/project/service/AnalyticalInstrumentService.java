@@ -9,9 +9,9 @@ import org.springframework.stereotype.Service;
  * @since 2021
  */
 @Service
-public class AnalyticalInstrumentServiceAbstract extends AbstractBaseService<AnalyticalInstrumentRepository, AnalyticalInstrumentEntity, Long> {
+public class AnalyticalInstrumentService extends AbstractBaseService<AnalyticalInstrumentRepository, AnalyticalInstrumentEntity, Long> {
 
-    public AnalyticalInstrumentServiceAbstract(AnalyticalInstrumentRepository repository) {
+    public AnalyticalInstrumentService(AnalyticalInstrumentRepository repository) {
         super(repository);
     }
 

@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
  * @since 2021
  */
 @Mapper
-public abstract class AnalyticalInstrumentMapper {
+public abstract class AnalyticalInstrumentMapper implements BaseMapper<AnalyticalInstrumentEntity, AnalyticalInstrumentDTO> {
 
     @Autowired
     private FactoryRepository factoryRepository;
@@ -25,9 +25,5 @@ public abstract class AnalyticalInstrumentMapper {
         entity.setFactories(dto.getFactories().stream().map(item -> factoryRepository.findByCode(item.getId()).get()).collect(Collectors.toSet()));
         return entity;
     }
-
-    public abstract AnalyticalInstrumentDTO toDTO(AnalyticalInstrumentEntity entity);
-
-    public abstract AnalyticalInstrumentEntity toEntity(AnalyticalInstrumentDTO dto);
 
 }

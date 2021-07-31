@@ -9,10 +9,6 @@ import org.mapstruct.Mapper;
  * @since 2021
  */
 @Mapper
-public interface FactoryMapper {
-
-    FactoryDTO toDTO(FactoryEntity entity);
-
-    FactoryEntity toEntity(FactoryDTO dto);
+public interface FactoryMapper extends BaseMapper<FactoryEntity, FactoryDTO> {
 
 }

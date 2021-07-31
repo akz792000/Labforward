@@ -56,7 +56,6 @@ class ProjectApplicationTests {
         return response.getBody();
     }
 
-    //@Disabled
     @DisplayName("persist")
     @Order(1)
     @Test
@@ -105,8 +104,12 @@ class ProjectApplicationTests {
                 .description("Clinical Lab Equipment 1")
                 .build();
         persist(clinicalLabEquipmentDTO, "/clinicalLabEquipment/persist");
+    }
 
-        System.out.println("End");
+    @DisplayName("merge")
+    @Order(1)
+    @Test
+    public void merge() {
 
     }
 
