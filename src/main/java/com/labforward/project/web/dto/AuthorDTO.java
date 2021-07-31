@@ -5,8 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 
 /**
  * @author Ali Karimizandi
@@ -16,12 +14,12 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @Data
-public class CategoryDTO {
+public class AuthorDTO {
 
     private Long id;
 
-    private String name;
+    private String firstName;
 
-    private List<InstrumentDTO> instruments;
+    private String lastName;
 
 }
