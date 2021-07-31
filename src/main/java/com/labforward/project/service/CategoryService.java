@@ -18,10 +18,6 @@ public class CategoryService {
 
     private final CategoryRepository repository;
 
-    public List<CategoryEntity> findAll() {
-        return repository.findAll();
-    }
-
     public Optional<CategoryEntity> findById(Long id) {
         return repository.findById(id);
     }
