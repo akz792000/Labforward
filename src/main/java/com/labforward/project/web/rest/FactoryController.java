@@ -1,7 +1,7 @@
 package com.labforward.project.web.rest;
 
 import com.labforward.project.domain.FactoryEntity;
-import com.labforward.project.service.FactoryService;
+import com.labforward.project.service.FactoryServiceAbstract;
 import com.labforward.project.web.dto.FactoryDTO;
 import com.labforward.project.web.mapper.FactoryMapper;
 import lombok.RequiredArgsConstructor;
@@ -25,7 +25,7 @@ public class FactoryController {
 
     private final FactoryMapper mapper;
 
-    private final FactoryService service;
+    private final FactoryServiceAbstract service;
 
     @GetMapping(value = "/findById")
     public FactoryDTO findById(@RequestParam Long id) throws Exception {

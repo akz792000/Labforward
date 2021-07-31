@@ -19,12 +19,12 @@ public abstract class BaseEntity implements Serializable {
     @Column(name = "id", updatable = false, nullable = false)
     private Long id;
 
-    @Version
-    @Column(name = "version", precision = 12)
-    private Long version;
-
     @Setter
     @Column(unique = true)
     private Long code;
+
+    @Version
+    @Column(name = "version", precision = 12)
+    private Long version;
 
 }

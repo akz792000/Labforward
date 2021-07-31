@@ -14,17 +14,14 @@ import java.util.Set;
  * @author Ali Karimizandi
  * @since 2021
  */
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @SuperBuilder
 @Data
-public class InstrumentDTO {
+public class InstrumentDTO extends BaseDTO {
 
     @JsonProperty
-    private Long code;
-
-    @JsonProperty
-    private String title;
+    private String name;
 
     @JsonProperty
     private Set<FactoryDTO> factories = new HashSet<>();

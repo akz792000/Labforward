@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
  * @since 2021
  */
 @Repository
-public interface FactoryRepository extends GenericRepository<FactoryEntity, Long> {
+public interface FactoryRepository extends BaseRepository<FactoryEntity, Long> {
 
 }

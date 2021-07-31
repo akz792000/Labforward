@@ -1,7 +1,9 @@
 package com.labforward.project;
 
+import com.labforward.project.enums.MaterialType;
 import com.labforward.project.enums.PowerUsageType;
 import com.labforward.project.web.dto.AnalyticalInstrumentDTO;
+import com.labforward.project.web.dto.ClinicalLabEquipmentDTO;
 import com.labforward.project.web.dto.FactoryDTO;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,15 +36,10 @@ class ProjectApplicationTests {
         return "http://localhost:" + port;
     }
 
-    public void persistFactory(Long code, String name) {
-        FactoryDTO factoryDTO = FactoryDTO.builder()
-                .code(code)
-                .name(name)
-                .build();
-        HttpEntity<FactoryDTO> httpEntity = new HttpEntity<>(factoryDTO);
-        ResponseEntity<Long> response = this.restTemplate.postForEntity(getUrl() + "/factory/persist", httpEntity, Long.class);
-        Long authorId = response.getBody();
-        assertThat(authorId).isNotEqualTo(0L);
+    public <T> void persist(T dto, String url) {
+        HttpEntity<T> httpEntity = new HttpEntity<>(dto);
+        ResponseEntity<Long> response = this.restTemplate.postForEntity(getUrl() + url, httpEntity, Long.class);
+        assertThat(response.getBody()).isNotEqualTo(0L);
     }
 
     public FactoryDTO getFactoryByCode(Long code) {
@@ -64,27 +61,52 @@ class ProjectApplicationTests {
     @Order(1)
     @Test
     public void persist() {
-        // persist factories
-        persistFactory(1L, "Factory 1");
-        persistFactory(2L, "Factory 2");
+        FactoryDTO dto;
+        // persist factory 1
+        dto = FactoryDTO.builder()
+                .code(1L)
+                .name("Factory 1")
+                .build();
+        persist(dto, "/factory/persist");
 
-        // get factory id
+        // persist factory 2
+        dto = FactoryDTO.builder()
+                .code(2L)
+                .name("Factory 2")
+                .build();
+        persist(dto, "/factory/persist");
+
+        // get factories
         FactoryDTO factoryDTO1 = getFactoryByCode(1L);
         FactoryDTO factoryDTO2 = getFactoryByCode(2L);
 
         // persist analytical instrument
-        AnalyticalInstrumentDTO dto = AnalyticalInstrumentDTO.builder()
+        AnalyticalInstrumentDTO analyticalInstrumentDTO = AnalyticalInstrumentDTO.builder()
                 .powerUsageType(PowerUsageType.E_220)
                 .date(new Date())
-                .factories(new HashSet<FactoryDTO>() {{ add(factoryDTO1); add(factoryDTO2); }})
-                .title("AnalyticalInstrument_1")
+                .factories(new HashSet<>() {{
+                    add(factoryDTO1);
+                    add(factoryDTO2);
+                }})
+                .name("AnalyticalInstrument_1")
                 .description("Analytical Instrument 1")
                 .build();
-        HttpEntity<AnalyticalInstrumentDTO> httpEntity = new HttpEntity<>(dto);
-        ResponseEntity<String> response = this.restTemplate.postForEntity(getUrl() + "/analyticalInstrument/persist", httpEntity, String.class);
-        String authorId = response.getBody();
+        persist(analyticalInstrumentDTO, "/analyticalInstrument/persist");
 
-        System.out.println(authorId);
+        // persist clinical lab equipment
+        ClinicalLabEquipmentDTO clinicalLabEquipmentDTO = ClinicalLabEquipmentDTO.builder()
+                .materialType(MaterialType.PLASTIC)
+                .date(new Date())
+                .factories(new HashSet<>() {{
+                    add(factoryDTO1);
+                    add(factoryDTO2);
+                }})
+                .name("ClinicalLabEquipment_1")
+                .description("Clinical Lab Equipment 1")
+                .build();
+        persist(clinicalLabEquipmentDTO, "/clinicalLabEquipment/persist");
+
+        System.out.println("End");
 
     }
 

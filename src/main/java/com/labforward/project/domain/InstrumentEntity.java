@@ -18,7 +18,14 @@ import java.util.Set;
 public abstract class InstrumentEntity extends BaseEntity {
 
     @Column
-    private String title;
+    private String name;
+
+    @Column
+    @Temporal(TemporalType.DATE)
+    private Date date;
+
+    @Column(length = 1000)
+    private String description;
 
     @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(
@@ -27,12 +34,5 @@ public abstract class InstrumentEntity extends BaseEntity {
             inverseJoinColumns = {@JoinColumn(name = "factory_id")}
     )
     private Set<FactoryEntity> factories = new HashSet<>();
-
-    @Column
-    @Temporal(TemporalType.DATE)
-    private Date date;
-
-    @Column(length = 1000)
-    private String description;
 
 }

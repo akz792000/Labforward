@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
  * @since 2021
  */
 @Repository
-public interface ClinicalLabEquipmentRepository extends GenericRepository<ClinicalLabEquipmentEntity, Long> {
+public interface ClinicalLabEquipmentRepository extends BaseRepository<ClinicalLabEquipmentEntity, Long> {
 
 }

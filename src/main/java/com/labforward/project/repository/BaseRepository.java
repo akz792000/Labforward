@@ -10,7 +10,7 @@ import java.util.Optional;
  * @since 2021
  */
 @NoRepositoryBean
-public interface GenericRepository<T, ID> extends JpaRepository<T, ID> {
+public interface BaseRepository<T, ID> extends JpaRepository<T, ID> {
 
     Optional<T> findByCode(Long code);
 

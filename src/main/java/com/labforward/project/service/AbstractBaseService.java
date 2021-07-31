@@ -1,6 +1,6 @@
 package com.labforward.project.service;
 
-import com.labforward.project.repository.GenericRepository;
+import com.labforward.project.repository.BaseRepository;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Optional;
@@ -10,7 +10,7 @@ import java.util.Optional;
  * @since 2021
  */
 @RequiredArgsConstructor
-public class GenericService<R extends GenericRepository<T, ID>, T, ID> {
+public abstract class AbstractBaseService<R extends BaseRepository<T, ID>, T, ID> {
 
     private final R repository;
 

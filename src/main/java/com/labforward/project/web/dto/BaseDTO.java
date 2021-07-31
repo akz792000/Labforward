@@ -1,7 +1,6 @@
 package com.labforward.project.web.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.labforward.project.enums.PowerUsageType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,9 +14,12 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @SuperBuilder
 @Data
-public class AnalyticalInstrumentDTO extends InstrumentDTO {
+public class BaseDTO {
 
     @JsonProperty
-    private PowerUsageType powerUsageType;
+    private Long id;
+
+    @JsonProperty
+    private Long code;
 
 }
