@@ -1,9 +1,9 @@
 package com.labforward.project.web.rest;
 
-import com.labforward.project.domain.AuthorEntity;
-import com.labforward.project.service.AuthorService;
-import com.labforward.project.web.dto.AuthorDTO;
-import com.labforward.project.web.mapper.AuthorMapper;
+import com.labforward.project.domain.FactoryEntity;
+import com.labforward.project.service.FactoryService;
+import com.labforward.project.web.dto.FactoryDTO;
+import com.labforward.project.web.mapper.FactoryMapper;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,19 +18,19 @@ import java.util.Optional;
  */
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/author")
-public class AuthorController {
+@RequestMapping("/factory")
+public class FactoryController {
 
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
-    private final AuthorMapper mapper;
+    private final FactoryMapper mapper;
 
-    private final AuthorService service;
+    private final FactoryService service;
 
     @GetMapping(value = "/findById")
-    public AuthorDTO findById(@RequestParam Long id) throws Exception {
+    public FactoryDTO findById(@RequestParam Long id) throws Exception {
         log.info("Find by id");
-        Optional<AuthorEntity> optional = service.findById(id);
+        Optional<FactoryEntity> optional = service.findById(id);
         if (optional.isPresent()) {
             return mapper.toDTO(optional.get());
         }
@@ -38,9 +38,9 @@ public class AuthorController {
     }
 
     @PostMapping(value = "/persist")
-    public Long persist(final @RequestBody @Valid AuthorDTO dto) {
+    public Long persist(final @RequestBody @Valid FactoryDTO dto) {
         log.info("Persist");
-        AuthorEntity entity = mapper.toEntity(dto);
+        FactoryEntity entity = mapper.toEntity(dto);
         service.save(entity);
         return entity.getId();
     }

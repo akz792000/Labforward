@@ -13,12 +13,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Data
-public class AuthorDTO {
+public class FactoryDTO {
 
     private Long id;
 
-    private String firstName;
-
-    private String lastName;
+    private String name;
 
 }

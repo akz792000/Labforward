@@ -22,15 +22,15 @@ public abstract class InstrumentEntity extends BaseEntity {
 
     @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(
-            name = "instrument_author",
+            name = "instrument_factory",
             joinColumns = {@JoinColumn(name = "instrument_id")},
-            inverseJoinColumns = {@JoinColumn(name = "author_id")}
+            inverseJoinColumns = {@JoinColumn(name = "factory_id")}
     )
-    Set<AuthorEntity> authors = new HashSet<>();
+    Set<FactoryEntity> factories = new HashSet<>();
 
     @Column
     @Temporal(TemporalType.DATE)
-    private Date publishingDate;
+    private Date date;
 
     @Column(length = 1000)
     private String description;

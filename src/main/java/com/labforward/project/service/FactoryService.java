@@ -1,7 +1,7 @@
 package com.labforward.project.service;
 
-import com.labforward.project.domain.AuthorEntity;
-import com.labforward.project.repository.AuthorRepository;
+import com.labforward.project.domain.FactoryEntity;
+import com.labforward.project.repository.FactoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,15 +13,15 @@ import java.util.Optional;
  */
 @RequiredArgsConstructor
 @Service
-public class AuthorService {
+public class FactoryService {
 
-    private final AuthorRepository repository;
+    private final FactoryRepository repository;
 
-    public Optional<AuthorEntity> findById(Long id) {
+    public Optional<FactoryEntity> findById(Long id) {
         return repository.findById(id);
     }
 
-    public AuthorEntity save(AuthorEntity entity) {
+    public FactoryEntity save(FactoryEntity entity) {
         return repository.save(entity);
     }
 

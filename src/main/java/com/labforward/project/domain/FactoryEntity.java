@@ -10,13 +10,10 @@ import javax.persistence.Entity;
  * @since 2021
  */
 @Data
-@Entity(name = "author")
-public class AuthorEntity extends BaseEntity {
+@Entity(name = "factory")
+public class FactoryEntity extends BaseEntity {
 
-    @Column(name = "firstName")
-    String firstName;
-
-    @Column(name = "lastName")
-    String lastName;
+    @Column(name = "name")
+    String name;
 
 }
