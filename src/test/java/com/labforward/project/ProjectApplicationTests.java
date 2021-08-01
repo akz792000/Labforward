@@ -118,21 +118,21 @@ class ProjectApplicationTests {
     @Order(2)
     @Test
     public void merge() {
-        // Factory
+        // merge factory
         String name = "Factory 11";
         FactoryDTO factoryDTO = findByCode(1L, "/factory", FactoryDTO.class);
         factoryDTO.setName(name);
         factoryDTO = merge(factoryDTO, "/factory");
         assertThat(factoryDTO.getName()).isEqualTo(name);
 
-        // AnalyticalInstrument
+        // merge analytical instrument
         PowerUsageType powerUsageType = PowerUsageType.E_110;
         AnalyticalInstrumentDTO analyticalInstrumentDTO = findByCode(1L, "/analyticalInstrument", AnalyticalInstrumentDTO.class);
         analyticalInstrumentDTO.setPowerUsageType(powerUsageType);
         analyticalInstrumentDTO = merge(analyticalInstrumentDTO, "/analyticalInstrument");
         assertThat(analyticalInstrumentDTO.getPowerUsageType()).isEqualTo(powerUsageType);
 
-        // AnalyticalInstrument
+        // merge analytical instrument
         MaterialType materialType = MaterialType.GLASS;
         ClinicalLabEquipmentDTO clinicalLabEquipmentDTO = findByCode(2L, "/clinicalLabEquipment", ClinicalLabEquipmentDTO.class);
         clinicalLabEquipmentDTO.setMaterialType(materialType);
