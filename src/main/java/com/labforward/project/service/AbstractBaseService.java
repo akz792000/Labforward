@@ -1,5 +1,6 @@
 package com.labforward.project.service;
 
+import com.labforward.project.domain.BaseEntity;
 import com.labforward.project.repository.BaseRepository;
 import lombok.RequiredArgsConstructor;
 
@@ -10,7 +11,7 @@ import java.util.Optional;
  * @since 2021
  */
 @RequiredArgsConstructor
-public abstract class AbstractBaseService<R extends BaseRepository<T, ID>, T, ID> {
+public abstract class AbstractBaseService<R extends BaseRepository<T, ID>, T extends BaseEntity, ID> {
 
     private final R repository;
 
@@ -23,7 +24,9 @@ public abstract class AbstractBaseService<R extends BaseRepository<T, ID>, T, ID
     }
 
     public T save(T entity) {
-        return repository.save(entity);
+        if (entity == null) return null;
+        entity = repository.save(entity);
+        return entity;
     }
 
     public void deleteById(ID id) {

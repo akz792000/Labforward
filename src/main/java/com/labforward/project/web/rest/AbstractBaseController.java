@@ -44,12 +44,23 @@ public abstract class AbstractBaseController<E extends AbstractBaseService, T ex
         return null;
     }
 
+    protected BaseEntity save(final D dto) {
+        BaseEntity entity = (BaseEntity) mapper.toEntity(dto);
+        return service.save(entity);
+    }
+
     @PostMapping(value = "/persist")
     public Long persist(final @RequestBody @Valid D dto) {
         log.info("Persist");
-        Object entity = mapper.toEntity(dto);
-        service.save(entity);
-        return ((BaseEntity) entity).getId();
+        BaseEntity entity = save(dto);
+        return entity.getId();
+    }
+
+    @PostMapping(value = "/merge")
+    public D merge(final @RequestBody @Valid D dto) {
+        log.info("Merge");
+        BaseEntity entity = save(dto);
+        return (D) mapper.toDTO(entity);
     }
 
     @DeleteMapping(value = "/deleteById/{id}")
