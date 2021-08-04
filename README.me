@@ -30,3 +30,15 @@ Furthermore, you can see the diagram of the table by using labforward.png
     f.merge factory
     g.merge analytical instrument
     h.merge analytical instrument
+
+7.if you want to run the project with mvnw
+    a.after the @REM ==== START VALIDATION ==== in mvnw.cmd in windows
+        set JAVA_HOME=C:\Program Files\Java\jdk-11.0.10
+    b.for run: mvnw package && java -jar target/project-0.0.1-SNAPSHOT.jar
+    c.for run & skip test: mvnw package -DskipTests && java -jar target/project-0.0.1-SNAPSHOT.jar
+
+8.build docker image
+    a.create openjdk11-alpine
+        a-1.cd alpine
+        a-2.docker build -t openjdk11-alpine .
+    b.docker-compose up
