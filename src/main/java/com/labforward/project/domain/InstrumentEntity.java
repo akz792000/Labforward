@@ -15,7 +15,7 @@ import java.util.Set;
 @Entity(name = "instrument")
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "instrument_type", discriminatorType = DiscriminatorType.INTEGER)
-public abstract class InstrumentEntity extends BaseEntity {
+public abstract class InstrumentEntity extends AuditEntity {
 
     @Column
     private String name;

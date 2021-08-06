@@ -11,7 +11,7 @@ import javax.persistence.Entity;
  */
 @Data
 @Entity(name = "factory")
-public class FactoryEntity extends BaseEntity {
+public class FactoryEntity extends AuditEntity {
 
     @Column(name = "name")
     private String name;

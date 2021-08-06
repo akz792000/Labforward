@@ -2,26 +2,24 @@ Dear Labfoward experts
 
 Base on the demanded project I have done following:
 
-1.I dedicated 8 hours to complete the project.
-
-2.Due to the lack of knowledge related to laboratory devices, first I had to learn more about these stuff
+1.Due to the lack of knowledge related to laboratory devices, first I had to learn more about these stuff
 so, while I was surfing on the web I came across this site labx.com, then I faced with lots of categories
 such as Analytical Instruments, Laboratory Glassware, Clinical Lab Equipment, Microscopes and so on so forth.
 All in all I decided to consider just two categories and create a simple project based on that.
 
-3.I implemented the join table on the inheritance strategies based on JPA and Hibernate. Maybe you think
+2.I implemented the join table on the inheritance strategies based on JPA and Hibernate. Maybe you think
 why I used join, to be honest it depends on how many fields each dedicated table has, but I think in this project
 we have enough individuals fields that convinced me to use join but not a lot of fields that forced me to use table per class.
 Furthermore, you can see the diagram of the table by using labforward.png
 
-4.Recently I have been working on my project, therefore I decided to use my new brand generic layers for this project.
+3.Recently I have been working on my project, therefore I decided to use my new brand generic layers for this project.
 
-5.Based on the time I tried to follow these rules
+4.Based on the time I tried to follow these rules
     a.Uniform interface
     b.Stateless
     c.Layered System
 
-6.I have preferred a unit test to test the project
+5.I have preferred a unit test to test the project
     a.persist factory 1
     b.persist factory 2
     c.get factories
@@ -31,13 +29,13 @@ Furthermore, you can see the diagram of the table by using labforward.png
     g.merge analytical instrument
     h.merge analytical instrument
 
-7.if you want to run the project with mvnw
+6.if you want to run the project with mvnw
     a.after the @REM ==== START VALIDATION ==== in mvnw.cmd in windows
         set JAVA_HOME=C:\Program Files\Java\jdk-11.0.10
     b.for run: mvnw package && java -jar target/project-0.0.1-SNAPSHOT.jar
     c.for run & skip test: mvnw package -DskipTests && java -jar target/project-0.0.1-SNAPSHOT.jar
 
-8.build docker image
+7.build docker image
     a.create openjdk11-alpine
         a-1.cd alpine
         a-2.docker build -t openjdk11-alpine .
