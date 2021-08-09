@@ -7,10 +7,7 @@ import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import javax.persistence.EntityListeners;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 import java.util.Date;
 
 @Data
@@ -19,17 +16,21 @@ import java.util.Date;
 public abstract class AuditEntity extends BaseEntity {
 
     @CreatedBy
-    private Long createdBy;
+    @Column(name = "created_by", updatable = false)
+    private String createdBy;
 
-    @Temporal(TemporalType.TIMESTAMP)
     @CreatedDate
-    private Date createdDate;
+    @Column(name = "created_date", updatable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date creationDate;
 
     @LastModifiedBy
-    private Long lastModifiedBy;
+    @Column(name = "last_modified_by")
+    private String lastModifiedBy;
 
-    @Temporal(TemporalType.TIMESTAMP)
     @LastModifiedDate
+    @Column(name = "last_modified_date")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date lastModifiedDate;
 
 }
